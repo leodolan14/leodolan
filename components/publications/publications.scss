@@ -1,0 +1,94 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+// ==========================================================================
+// Publications page — publications + working papers (own heading each, same
+// citation styling for both) on the left, figure on the right.
+// ==========================================================================
+
+.publications__layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: spacing(9);
+  align-items: start;
+
+  @include until(tablet) {
+    grid-template-columns: 1fr;
+    gap: spacing(6);
+  }
+}
+
+.publications__figure {
+  margin: 0;
+}
+
+.publications__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-sm;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.publications__caption {
+  @include figure-caption;
+  margin: 0;
+}
+
+.publications__group-title {
+  margin-top: spacing(11);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & + .publications__list {
+    margin-bottom: spacing(9);
+  }
+}
+
+.publications__list {
+  display: flex;
+  flex-direction: column;
+}
+
+// Same treatment for a published article and a working paper — both are
+// just a formatted citation, optionally followed by a link. Borders only
+// separate entries from each other, not the list from its title or the
+// last entry from whatever follows.
+.publications__item {
+  padding: spacing(5.5) 0;
+  border-top: 1px solid $color-border;
+
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+}
+
+.publications__citation {
+  @include body-text;
+  margin: 0 0 spacing(1.5);
+  color: $color-text;
+}
+
+.publications__link {
+  @include underline-draw(left);
+  display: inline-block;
+  font: 500 13px $font-sans;
+  color: $color-accent;
+  word-break: break-all;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
+}

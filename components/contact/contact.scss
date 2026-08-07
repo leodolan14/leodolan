@@ -1,0 +1,93 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+// ==========================================================================
+// Contact page — photograph on the left, link list on the right
+// ==========================================================================
+
+.contact__body {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: spacing(9);
+  align-items: start;
+
+  @include until(tablet) {
+    grid-template-columns: 1fr;
+    gap: spacing(6);
+  }
+}
+
+.contact__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $color-border;
+}
+
+.contact__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: spacing(3);
+  padding: spacing(6.5) 0;
+  border-bottom: 1px solid $color-border;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover .contact__value,
+  &:focus-visible .contact__value {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
+}
+
+.contact__label {
+  font: 500 13px $font-sans;
+  color: $color-text;
+}
+
+// Same treatment as every other link on the site (nav, hero, publications):
+// accent color at rest, underline draws in left-to-right on hover.
+.contact__value {
+  @include underline-draw(left);
+  display: inline-block;
+  font: 400 16px $font-serif;
+  color: $color-accent;
+  transition: color $duration-fast $ease-standard, background-size $duration-base $ease-standard;
+}
+
+.contact__value--cv {
+  display: inline-flex;
+  align-items: center;
+  gap: spacing(2);
+}
+
+.contact__download-icon {
+  font-family: $font-sans;
+  font-size: 15px;
+}
+
+.contact__figure {
+  margin: 0;
+}
+
+.contact__frame {
+  position: relative;
+  aspect-ratio: 774 / 1032;
+  overflow: hidden;
+  border-radius: $radius-sm;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.contact__caption {
+  @include figure-caption;
+  margin: 0;
+}

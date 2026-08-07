@@ -1,0 +1,123 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+// ==========================================================================
+// Home hero — intro text beside a right-aligned portrait photo. The image
+// keeps its native aspect ratio (640:640, square) so nothing gets cropped,
+// and is capped below its native width so it never gets upscaled/soft.
+//
+// Flex, not grid: the text column is its own flex column, sized purely by
+// its own content. A grid with `grid-template-areas` spanning the photo
+// across the eyebrow/title/text rows inflates each of those rows to a third
+// of the photo's height (row size = tallest item sharing that row), which
+// showed up as odd extra gaps between eyebrow/title/text — flex sidesteps
+// that entirely since .hero__text sizes independently of .hero__media.
+// ==========================================================================
+
+.hero {
+  @include container($container-wide);
+  display: flex;
+  flex-direction: column;
+  gap: spacing(10);
+  padding-block: spacing(15) spacing(11);
+
+  @include from(laptop) {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-block: spacing(18) spacing(14);
+  }
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+
+  @include from(laptop) {
+    flex: 1 1 0;
+  }
+}
+
+.hero__eyebrow {
+  @include eyebrow;
+  color: $color-accent;
+  margin: 0 0 spacing(1);
+}
+
+.hero__title {
+  @include heading-hero;
+  font-size: clamp(52px, 8vw, 84px);
+  margin: 0 0 spacing(6);
+  color: $color-text;
+
+  @include from(laptop) {
+    line-height: 0.95;
+  }
+}
+
+.hero__intro {
+  @include body-text;
+  margin: 0;
+  color: $color-text;
+  max-width: 520px;
+
+  & + & {
+    margin-top: spacing(4.5);
+  }
+}
+
+.hero__link {
+  @include underline-draw(left);
+  color: $color-accent;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
+}
+
+.hero__media {
+  display: flex;
+  justify-content: center;
+}
+
+// Two copies of the same photo, only one ever rendered at a time — lets the
+// mobile one sit inline right after .hero__title (inside .hero__text)
+// without touching .hero__text's desktop flex-column sizing at all.
+.hero__media--mobile {
+  margin: 0 0 spacing(6);
+
+  @include from(laptop) {
+    display: none;
+  }
+}
+
+.hero__media--desktop {
+  display: none;
+
+  @include from(laptop) {
+    display: flex;
+    flex: 1 1 0;
+    justify-content: flex-end;
+  }
+}
+
+.hero__frame {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  overflow: hidden;
+  border-radius: $radius-sm;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.96);
+}

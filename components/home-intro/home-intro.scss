@@ -1,0 +1,83 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.home-intro__grid {
+  padding: spacing(2) 0; // 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid $color-border;
+
+  @include until(laptop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include until(tablet) {
+    grid-template-columns: 1fr;
+    padding-top: spacing(2);
+    padding-inline: 16px;
+  }
+}
+
+.home-intro__card {
+  display: block;
+  padding: spacing(6.5) spacing(7);
+  border-right: 1px solid $color-border;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+  transition: background-color $duration-fast $ease-standard;
+  @include focus-ring;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: rgba($color-text, 0.04);
+  }
+
+  &:hover .home-intro__card-title,
+  &:focus-visible .home-intro__card-title {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
+
+  @include until(laptop) {
+    &:nth-child(2n) {
+      border-right: none;
+    }
+
+    &:nth-child(n + 3) {
+      border-top: 1px solid $color-border;
+    }
+  }
+
+  @include until(tablet) {
+    border-right: none;
+    border-top: 1px solid $color-border;
+    padding: spacing(5) 0;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
+
+.home-intro__card-title {
+  @include heading-card;
+  @include underline-draw(left);
+  display: inline-block;
+  margin: 0 0 spacing(1.5);
+  color: $color-text;
+  transition: color $duration-fast $ease-standard, background-size $duration-base $ease-standard;
+}
+
+.home-intro__card-desc {
+  margin: 0;
+  font: 400 12.5px / 1.5 $font-sans;
+  color: $color-text;
+}

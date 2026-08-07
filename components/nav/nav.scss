@@ -1,0 +1,161 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+// ==========================================================================
+// Site navigation — fixed to the viewport, always on a legible blurred
+// backdrop. Its rendered height is published to --nav-height (see nav.js)
+// so page content can reserve the right amount of space below it.
+// ==========================================================================
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: spacing(4);
+  padding: 22px spacing(11);
+  background: rgba($color-bg, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  // border-bottom: 1px solid $color-border;
+
+  @include until(tablet) {
+    padding: 16px 8px;
+  }
+}
+
+.nav__logo {
+  font: italic 500 18px $font-serif;
+  color: $color-text;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-alt;
+  }
+}
+
+.nav__links {
+  display: flex;
+  gap: spacing(7);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include until(laptop) {
+    gap: spacing(5);
+  }
+
+  // Full-screen overlay menu, toggled by .nav__toggle (see nav.js). Hidden
+  // via opacity/visibility (not display) so the close transition can play.
+  //
+  // Height is set explicitly via viewport units rather than `inset: 0`
+  // (top/right/bottom/left) — .nav has `backdrop-filter`, which makes it the
+  // containing block for its `position: fixed` descendants, so a `bottom: 0`
+  // here would resolve against .nav's own (short) box instead of the
+  // viewport. `100dvh` isn't affected by that and always spans the screen.
+  @include until(tablet) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    z-index: $z-overlay;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: spacing(6.5);
+    width: auto;
+    margin: 0;
+    padding: spacing(11) spacing(3);
+    background: rgba($color-bg, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity $duration-base $ease-standard, transform $duration-base $ease-standard,
+      visibility 0s linear $duration-base;
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity $duration-base $ease-standard, transform $duration-base $ease-standard,
+        visibility 0s linear 0s;
+    }
+  }
+}
+
+.nav__link {
+  @include nav-link;
+  @include underline-draw(left); // draws left-to-right on hover/active
+  color: $color-text;
+  transition: color $duration-fast $ease-standard, background-size $duration-base $ease-standard;
+  @include focus-ring;
+
+  &:hover,
+  &:focus-visible,
+  &[aria-current="page"] {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
+
+  @include until(tablet) {
+    font-size: 20px;
+  }
+}
+
+// Hamburger toggle — desktop hides it (links show inline); mobile shows it
+// and hides .nav__links until opened. The three bars animate into an X.
+.nav__toggle {
+  display: none;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: $z-overlay + 1;
+
+  @include until(tablet) {
+    display: flex;
+  }
+
+  @include focus-ring;
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: $color-text;
+  border-radius: 1px;
+  transition: transform $duration-fast $ease-standard, opacity $duration-fast $ease-standard;
+}
+
+.nav__toggle[aria-expanded="true"] {
+  .nav__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "leo-dolan-site",
+  "version": "1.0.0",
+  "description": "Personal academic site for Leo Dolan — static HTML, vanilla JS and Sass, deployable on GitHub Pages.",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "sass": "^1.79.4",
+    "vite": "^5.4.21"
+  }
+}

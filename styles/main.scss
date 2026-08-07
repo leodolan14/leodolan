@@ -1,0 +1,85 @@
+// ==========================================================================
+// Leo Dolan — main stylesheet entry point
+// Compiles to css/main.css (see package.json "build:css" script)
+// ==========================================================================
+
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "typography" as *;
+@use "mixins" as *;
+@use "utilities";
+
+@use "../components/cursor/cursor";
+@use "../components/nav/nav";
+@use "../components/hero/hero";
+@use "../components/profile/profile";
+@use "../components/home-intro/home-intro";
+@use "../components/stats/stats";
+@use "../components/fieldwork-map/fieldwork-map";
+@use "../components/fieldwork-gallery/fieldwork-gallery";
+@use "../components/research/research";
+@use "../components/publications/publications";
+@use "../components/teaching/teaching";
+@use "../components/contact/contact";
+@use "../components/footer/footer";
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  // Overwritten precisely by nav.js once the fixed nav is measured; this is
+  // just a same-ballpark fallback for the instant before that runs.
+  --nav-height: 74px;
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-sans;
+  min-height: 100vh;
+}
+
+a {
+  color: $color-accent;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-alt;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: $color-accent;
+  color: $color-white;
+}
+
+.page {
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+  color: $color-text;
+}
+
+.page-view {
+  @include fade-up-enter;
+}

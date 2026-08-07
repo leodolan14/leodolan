@@ -1,0 +1,75 @@
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "typography" as *;
+@use "mixins" as *;
+
+// ==========================================================================
+// Small, composable utility classes
+// ==========================================================================
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.skip-link {
+  @include visually-hidden;
+  z-index: $z-skip-link;
+
+  &:focus {
+    position: fixed;
+    top: spacing(2);
+    left: spacing(2);
+    width: auto;
+    height: auto;
+    clip: auto;
+    padding: 8px 14px;
+    background: $color-text;
+    color: $color-white;
+    font: 500 13px $font-sans;
+    border-radius: $radius-sm;
+  }
+}
+
+.container {
+  @include container($container-text);
+}
+
+.container--wide {
+  @include container($container-wide);
+}
+
+.fade-up {
+  @include fade-up-enter;
+}
+
+.reveal {
+  @include reveal-on-scroll;
+}
+
+.u-eyebrow {
+  @include eyebrow;
+  color: $color-accent; // matches .hero__eyebrow
+  margin-bottom: spacing(2);
+
+  &:hover {
+    color: $color-accent-alt;
+  }
+}
+
+// Shared inner-page heading, reused by About/Research/Publications/Teaching/Contact.
+// Same mixin as .hero__title so every page's top heading matches the home
+// page's (size, weight, italic cut).
+.u-page-title {
+  @include heading-hero;
+  margin: 0 0 spacing(8.5); // 34px
+  color: $color-text;
+}
+
+// Shared vertical rhythm for the single-column inner pages.
+.page-section {
+  padding-block: spacing(17.5) spacing(27.5); // 70px / 110px
+
+  @include until(tablet) {
+    padding-block: spacing(11) spacing(17.5); // 44px / 70px
+  }
+}

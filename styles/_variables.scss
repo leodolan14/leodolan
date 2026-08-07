@@ -1,0 +1,58 @@
+// ==========================================================================
+// Design tokens — colors, spacing, radius, shadows, z-index, timing
+// ==========================================================================
+
+// ---- Color palette ---------------------------------------------------------
+$color-bg: #e7dede;          // page background (warm mauve)
+$color-surface: #fbf9f4;     // light card surface (map panel)
+$color-pill: #ddd0d0;        // tag / pill background
+
+$color-text: #443235;        // primary text (near-black plum)
+$color-text-muted: #77746c;  // secondary text (captions, meta)
+$color-text-faint: #8a8578;  // tertiary text (eyebrow labels, dates)
+
+$color-accent: #8a6a3f;      // bronze accent — links, badges, active states
+$color-accent-alt: $color-accent;
+//$color-accent-alt: #916a70;  // dusty rose — hover state for nav/links
+$color-white: #ffffff;
+
+$color-border: rgba(0, 0, 0, 0.1);
+$color-border-strong: rgba(0, 0, 0, 0.15);
+$color-border-dashed: rgba(0, 0, 0, 0.22);
+
+$color-caption-bg: rgba(0, 0, 0, 0.35);
+
+// ---- Spacing scale (4px base unit) ----------------------------------------
+$spacing-unit: 4px;
+
+@function spacing($multiplier) {
+  @return $spacing-unit * $multiplier;
+}
+
+// ---- Border radius ----------------------------------------------------------
+$radius-sm: 2px;
+$radius-pill: 20px;
+$radius-circle: 50%;
+
+// ---- Shadows ----------------------------------------------------------------
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+// ---- Z-index scale ------------------------------------------------------------
+$z-base: 1;
+$z-dropdown: 10;
+$z-sticky: 20;
+$z-overlay: 50;
+$z-skip-link: 100;
+
+// ---- Timing / easing ----------------------------------------------------------
+$duration-fast: 0.2s;
+$duration-base: 0.5s;
+$duration-slow: 0.8s;
+$ease-standard: ease;
+
+// ---- Layout -------------------------------------------------------------------
+$container-text: 820px;
+$container-wide: 1180px;
+$gutter: 44px;

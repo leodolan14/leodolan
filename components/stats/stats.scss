@@ -1,0 +1,72 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+
+.stats__grid {
+  padding-block: spacing(14); // 56px
+  display: grid;
+  display: none;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+
+  @include until(laptop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include until(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    padding-block: spacing(8);
+  }
+}
+
+.stats__item {
+  padding: spacing(4.5) spacing(5);
+  border-right: 1px solid $color-border;
+
+  &:nth-child(5n) {
+    border-right: none;
+  }
+
+  @include until(laptop) {
+    &:nth-child(3n) {
+      border-right: none;
+    }
+
+    &:nth-child(n + 4) {
+      border-top: 1px solid $color-border;
+      padding-top: spacing(4.5);
+    }
+  }
+
+  @include until(tablet) {
+    &:nth-child(3n) {
+      border-right: 1px solid $color-border;
+    }
+
+    &:nth-child(2n) {
+      border-right: none;
+    }
+
+    &:nth-child(n + 3) {
+      border-top: 1px solid $color-border;
+      padding-top: spacing(4.5);
+    }
+  }
+}
+
+.stats__value {
+  font: 400 34px / 1 $font-serif;
+  color: $color-text;
+  margin: 0 0 spacing(2);
+
+  @include until(tablet) {
+    font-size: 28px;
+  }
+}
+
+.stats__label {
+  margin: 0;
+  font: 400 12px / 1.4 $font-sans;
+  color: $color-text;
+}

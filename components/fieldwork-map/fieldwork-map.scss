@@ -1,0 +1,46 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/typography" as *;
+
+.fieldwork-map__inner {
+  padding-block: spacing(20) spacing(25); // 80px 100px
+}
+
+.fieldwork-map__eyebrow {
+  @include eyebrow;
+  color: $color-text;
+  margin: 0 0 spacing(3.5);
+
+  &:hover {
+    color: $color-accent-alt;
+  }
+}
+
+.fieldwork-map__heading {
+  @include heading-section;
+  margin: 0 0 spacing(8.5); // 34px
+  color: $color-text;
+  max-width: 680px;
+}
+
+.fieldwork-map__panel {
+  border: 1px solid $color-border-strong;
+  background: $color-surface;
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.fieldwork-map__frame {
+  width: 100%;
+  height: 560px;
+  border: none;
+  display: block;
+
+  @include until(laptop) {
+    height: 460px;
+  }
+
+  @include until(tablet) {
+    height: 620px; // stacked map/panel layout needs more vertical room
+  }
+}

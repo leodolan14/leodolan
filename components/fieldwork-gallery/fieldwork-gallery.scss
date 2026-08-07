@@ -1,0 +1,95 @@
+@use "../../styles/variables" as *;
+@use "../../styles/breakpoints" as *;
+@use "../../styles/mixins" as *;
+
+// ==========================================================================
+// Fieldwork gallery — three photo columns, each drifting up/down at its own
+// speed on scroll (see js/utils/parallax.js). Below `tablet` the columns
+// unwrap via `display: contents` so photos fall back to one plain stacked
+// list in original document order, and the (now boxless) column no longer
+// receives the parallax transform.
+// ==========================================================================
+
+.fieldwork-gallery {
+  max-width: 1320px; // wider than the shared container--wide
+  padding-block: 0 spacing(25); // 100px
+}
+
+.fieldwork-gallery__grid {
+  display: flex;
+  align-items: flex-start;
+  gap: spacing(2.5); // 10px
+  overflow: hidden; // clips each column's parallax drift at its own box edge
+
+  @include until(tablet) {
+    display: block;
+  }
+}
+
+.fieldwork-gallery__column {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  will-change: transform;
+
+  @include until(tablet) {
+    display: contents;
+  }
+}
+
+.fieldwork-gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-sm;
+  margin: 0;
+
+  @include until(tablet) {
+    margin-bottom: 6px; // the column's own `gap` no longer applies once it's unwrapped
+
+    // Fades in per-photo as each scrolls into view (see fieldwork-gallery.js);
+    // .is-visible is toggled by the same IntersectionObserver-based reveal
+    // used elsewhere on the site.
+    opacity: 0;
+    transition: opacity $duration-slow $ease-standard;
+
+    &.is-visible {
+      opacity: 1;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &--tall {
+    aspect-ratio: 774 / 1032;
+  }
+
+  &--wide {
+    aspect-ratio: 1376 / 1032;
+  }
+
+  &--panorama {
+    aspect-ratio: 1920 / 864;
+  }
+
+  &--square {
+    aspect-ratio: 1 / 1;
+  }
+
+  &--portrait {
+    aspect-ratio: 719 / 1600;
+  }
+}
+
+// A sibling of the <img> (not a wrapper around it) — the parallax transform
+// lands on the whole .fieldwork-gallery__column, so image and caption move
+// together as one rigid unit and stay a constant distance apart.
+.fieldwork-gallery__caption {
+  @include figure-caption;
+  margin: 0;
+}

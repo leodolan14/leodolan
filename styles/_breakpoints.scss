@@ -1,0 +1,43 @@
+// ==========================================================================
+// Breakpoints — mobile-first with a desktop-first `until` helper
+// ==========================================================================
+
+@use "sass:map";
+
+$breakpoints: (
+  mobile: 0,
+  tablet: 820px,
+  laptop: 1024px,
+  desktop: 1280px,
+  wide: 1440px,
+);
+
+// Apply styles from a breakpoint upward.
+@mixin from($name) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value == null {
+    @error "Unknown breakpoint `#{$name}`.";
+  }
+
+  @if $value == 0 {
+    @content;
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+// Apply styles below a breakpoint (exclusive).
+@mixin until($name) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value == null {
+    @error "Unknown breakpoint `#{$name}`.";
+  }
+
+  @media (max-width: $value - 1px) {
+    @content;
+  }
+}
