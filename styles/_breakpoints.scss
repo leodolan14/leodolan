@@ -1,7 +1,3 @@
-// ==========================================================================
-// Breakpoints — mobile-first with a desktop-first `until` helper
-// ==========================================================================
-
 @use "sass:map";
 
 $breakpoints: (
@@ -12,7 +8,6 @@ $breakpoints: (
   wide: 1440px,
 );
 
-// Apply styles from a breakpoint upward.
 @mixin from($name) {
   $value: map.get($breakpoints, $name);
 
@@ -29,7 +24,6 @@ $breakpoints: (
   }
 }
 
-// Apply styles below a breakpoint (exclusive).
 @mixin until($name) {
   $value: map.get($breakpoints, $name);
 

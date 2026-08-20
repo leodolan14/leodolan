@@ -3,14 +3,9 @@
 @use "../../styles/typography" as *;
 @use "../../styles/mixins" as *;
 
-// ==========================================================================
-// Profile — role/project facts and a supporting photo, on the home page
-// right below the hero intro.
-// ==========================================================================
-
 .profile {
   display: none;
-  padding-block: 0 spacing(15);
+  padding-block: 0 60px;
 }
 
 .profile__facts {
@@ -18,7 +13,7 @@
   grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid $color-border;
   border-bottom: 1px solid $color-border;
-  margin: 0 0 spacing(11);
+  margin: 0 0 44px;
 
   @include until(tablet) {
     grid-template-columns: 1fr;
@@ -26,12 +21,12 @@
 }
 
 .profile__fact {
-  padding: spacing(5) 0;
+  padding: 20px 0;
   border-right: 1px solid $color-border;
 
   &:last-child {
     border-right: none;
-    padding-left: spacing(6.5); // 26px
+    padding-left: 26px;
   }
 
   @include until(tablet) {
@@ -48,7 +43,7 @@
 .profile__fact-label {
   font: 500 11px $font-sans;
   color: $color-text-faint;
-  margin: 0 0 spacing(1);
+  margin: 0 0 4px;
 }
 
 .profile__fact-value {

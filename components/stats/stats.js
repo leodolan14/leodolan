@@ -8,7 +8,7 @@ const STATS = [
   { value: "9", label: "Countries visited for archival research" },
   { value: "8+", label: "Universities taught at" },
   { value: "2", label: "Published journal articles" },
-  { value: "ERC", label: "Africa @ Work project funding" },
+  { value: "ERC", label: "Africa@Work project funding" },
 ];
 
 export async function mountStats(root) {

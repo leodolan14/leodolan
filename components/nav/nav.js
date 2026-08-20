@@ -3,13 +3,6 @@ import { qsa } from "../../js/utils/dom.js";
 
 const TEMPLATE_PATH = "components/nav/nav.html";
 
-/**
- * Mounts the site navigation into `root` and returns the control the
- * router uses to reflect the active route. The nav is `position: fixed`, so
- * it's out of document flow — a ResizeObserver keeps `--nav-height` (used by
- * `.page` for top padding) in sync whenever the nav's own height changes,
- * e.g. wrapping to two rows on narrow viewports.
- */
 export async function mountNav(root) {
   root.appendChild(await loadTemplate(TEMPLATE_PATH));
 
@@ -23,10 +16,6 @@ export async function mountNav(root) {
   publishHeight();
   new ResizeObserver(publishHeight).observe(nav);
 
-  // Mobile hamburger: a full-screen overlay (.nav__links.is-open) toggled by
-  // .nav__toggle. Body scroll is locked while it's open since the overlay
-  // covers the viewport; closes on link choice, Escape, or resize past the
-  // mobile breakpoint (so it can't get stuck open after a rotation/resize).
   const toggle = nav.querySelector(".nav__toggle");
   const menu = nav.querySelector(".nav__links");
 

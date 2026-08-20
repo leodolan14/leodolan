@@ -3,30 +3,26 @@
 @use "../../styles/typography" as *;
 @use "../../styles/mixins" as *;
 
-// ==========================================================================
-// Teaching page — intro copy + vertical institution timeline
-// ==========================================================================
-
 .teaching__paragraph {
   @include body-text;
-  margin: 0 0 spacing(14);
+  margin: 0 0 56px;
 }
 
 .teaching__body {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: spacing(9);
+  gap: 36px;
   align-items: start;
 
   @include until(tablet) {
     grid-template-columns: 1fr;
-    gap: spacing(6);
+    gap: 24px;
   }
 }
 
 .teaching__frame {
   position: relative;
-  aspect-ratio: 464 / 1032;
+  aspect-ratio: 1200 / 1600;
   overflow: hidden;
   border-radius: $radius-sm;
 
@@ -36,6 +32,12 @@
     object-fit: cover;
     display: block;
   }
+}
+
+.teaching__figures {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .teaching__figure {
@@ -51,15 +53,15 @@
   position: relative;
   list-style: none;
   margin: 0;
-  padding-left: spacing(7);
+  padding-left: 28px;
   border-left: 1px solid $color-border-strong;
   display: flex;
   flex-direction: column;
-  gap: spacing(8.5); // 34px
+  gap: 34px;
 
   @include until(tablet) {
-    margin-left: 16px; // more room between the dotted bar and the edge
-    padding-left: 16px; // list copy sits closer to the bar
+    margin-left: 16px;
+    padding-left: 16px;
   }
 }
 
@@ -69,7 +71,7 @@
 
 .teaching__dot {
   position: absolute;
-  left: -33px; // centered on the bar when padding-left is spacing(7) (28px)
+  left: -33px;
   top: 5px;
   width: 9px;
   height: 9px;
@@ -78,14 +80,14 @@
   border: 2px solid $color-bg;
 
   @include until(tablet) {
-    left: -21px; // re-centered for the timeline's 16px mobile padding-left
+    left: -21px;
   }
 }
 
 .teaching__years {
   font: 500 12.5px $font-sans;
   color: $color-text-faint;
-  margin: 0 0 spacing(1);
+  margin: 0 0 4px;
 }
 
 .teaching__institution {
@@ -98,7 +100,7 @@
 }
 
 .teaching__location {
-  margin: spacing(0.75) 0 0;
+  margin: 3px 0 0;
   font: 400 13.5px / 1.4 $font-sans;
   color: $color-text;
 }

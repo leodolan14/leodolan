@@ -1,15 +1,6 @@
 const prefersReducedMotion = () =>
   window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/**
- * Drives a subtle scroll-linked parallax on descendants of `container` that
- * carry a `data-parallax="<multiplier>"` attribute. The rAF loop only runs
- * while `container` is on screen, so idle pages cost nothing.
- *
- * @param {HTMLElement} container - reference element the scroll fraction is measured against.
- * @param {string} [selector] - selector for the elements to translate.
- * @returns {() => void} teardown function.
- */
 export function initParallax(container, selector = "[data-parallax]") {
   if (!container || prefersReducedMotion()) return () => {};
 

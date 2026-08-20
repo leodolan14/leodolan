@@ -3,10 +3,6 @@
 @use "typography" as *;
 @use "mixins" as *;
 
-// ==========================================================================
-// Small, composable utility classes
-// ==========================================================================
-
 .visually-hidden {
   @include visually-hidden;
 }
@@ -17,8 +13,8 @@
 
   &:focus {
     position: fixed;
-    top: spacing(2);
-    left: spacing(2);
+    top: 8px;
+    left: 8px;
     width: auto;
     height: auto;
     clip: auto;
@@ -48,28 +44,24 @@
 
 .u-eyebrow {
   @include eyebrow;
-  color: $color-accent; // matches .hero__eyebrow
-  margin-bottom: spacing(2);
+  color: $color-accent;
+  margin-bottom: 8px;
 
   &:hover {
     color: $color-accent-alt;
   }
 }
 
-// Shared inner-page heading, reused by About/Research/Publications/Teaching/Contact.
-// Same mixin as .hero__title so every page's top heading matches the home
-// page's (size, weight, italic cut).
 .u-page-title {
   @include heading-hero;
-  margin: 0 0 spacing(8.5); // 34px
+  margin: 0 0 34px;
   color: $color-text;
 }
 
-// Shared vertical rhythm for the single-column inner pages.
 .page-section {
-  padding-block: spacing(17.5) spacing(27.5); // 70px / 110px
+  padding-block: 70px 110px;
 
   @include until(tablet) {
-    padding-block: spacing(11) spacing(17.5); // 44px / 70px
+    padding-block: 16px 0;
   }
 }

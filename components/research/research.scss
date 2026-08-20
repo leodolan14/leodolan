@@ -3,79 +3,67 @@
 @use "../../styles/typography" as *;
 @use "../../styles/mixins" as *;
 
-// ==========================================================================
-// Research page — bio copy in one column, archival photography in the other
-// ==========================================================================
-
-.research__intro {
-  display: grid;
-  // Single column while .research__photos is commented out in research.html;
-  // restore `grid-template-columns: 1.4fr 1fr;` (plus the until(tablet)
-  // override below) alongside it.
-  grid-template-columns: 1fr;
-  gap: spacing(9);
-  align-items: start;
-}
-
-.research__text {
-  display: flex;
-  flex-direction: column;
-}
-
-.research__paragraph {
-  @include body-text;
-  margin: 0 0 spacing(7.5); // 30px
-}
-
-.research__notes {
-  padding-left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: spacing(4);
-  border-top: 1px solid $color-border;
-  margin: 0;
-  padding-top: spacing(7);
+.research__strands {
   list-style: none;
-}
-
-.research__notes li {
-  position: relative;
-  padding-left: spacing(6);
-  font: 400 16px / 1.6 $font-sans;
-  color: $color-text;
-
-  &::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: $color-accent;
-  }
-}
-
-.research__photos {
+  margin: 0 0 44px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: spacing(7.5);
 }
 
-.research__figure {
-  margin: 0;
-}
+.research__strand {
+  padding: 28px 0;
+  border-top: 1px solid $color-border;
 
-.research__frame {
-  position: relative;
-  overflow: hidden;
-  border-radius: $radius-sm;
+  &:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 
-.research__caption {
-  @include figure-caption;
+.research__strand-number {
+  font: 400 15px $font-sans;
+  color: $color-accent;
+  margin-right: 10px;
+}
+
+.research__strand-title {
+  @include heading-card;
+  margin: 0 0 10px;
+  color: $color-text;
+}
+
+.research__strand-text {
+  @include body-text;
   margin: 0;
+  max-width: 680px;
+  color: $color-text;
+}
+
+.research__links {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.research__links-sep {
+  color: $color-text-faint;
+}
+
+.research__link {
+  @include underline-draw(left);
+  @include focus-ring;
+  @include body-text;
+  color: $color-accent;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
 }

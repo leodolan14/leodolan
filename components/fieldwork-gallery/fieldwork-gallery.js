@@ -9,8 +9,6 @@ export async function mountFieldworkGallery(root) {
 
   const section = root.querySelector(".fieldwork-gallery");
   const disconnectParallax = initParallax(section);
-  // Per-photo fade-in only actually shows below `tablet` (see the item's
-  // `until(tablet)` opacity rule) — harmless no-op above that.
   const disconnectReveal = initReveal(section, ".fieldwork-gallery__item");
 
   return () => {

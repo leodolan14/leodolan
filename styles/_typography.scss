@@ -1,17 +1,8 @@
-// ==========================================================================
-// Typography — font stacks, fluid scale, shared text mixins
-// ==========================================================================
-
 $font-serif: "Playfair Display", Georgia, serif;
 $font-sans: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 
-// Editorial italic display heading (hero name, page titles use the upright cut).
 @mixin heading-hero {
-  font: italic 500 clamp(40px, 5vw, 64px) / 1.05 $font-serif;
-}
-
-@mixin heading-page {
-  font: 400 clamp(40px, 4.5vw, 60px) / 1.15 $font-serif;
+  font: italic 500 clamp(40px, 4.8vw, 64px) / 1.05 $font-serif;
 }
 
 @mixin heading-section {
@@ -28,16 +19,8 @@ $font-sans: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   text-transform: uppercase;
 }
 
-@mixin body-lead {
-  font: 400 20px / 1.7 $font-serif;
-}
-
 @mixin body-text {
   font: 400 16px / 1.5 $font-sans;
-}
-
-@mixin meta-text {
-  font: 400 13.5px / 1.5 $font-sans;
 }
 
 @mixin nav-link {

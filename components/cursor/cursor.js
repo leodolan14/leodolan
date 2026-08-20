@@ -6,13 +6,6 @@ const isFinePointer = () =>
 
 const HOVER_SELECTOR = "a, button, [role='button'], input, textarea, select, summary, label";
 
-/**
- * Adds a blurred circular cursor companion — same frosted-glass look as the
- * nav — that trails the native pointer and grows over clickable elements.
- * Skipped entirely on touch/coarse-pointer devices, which have no hovering
- * mouse cursor to accompany. Event delegation on `document` means routed-in
- * content is covered automatically, no per-route rebinding needed.
- */
 export function initCursor() {
   if (!isFinePointer()) return () => {};
 

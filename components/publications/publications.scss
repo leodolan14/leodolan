@@ -3,20 +3,15 @@
 @use "../../styles/typography" as *;
 @use "../../styles/mixins" as *;
 
-// ==========================================================================
-// Publications page — publications + working papers (own heading each, same
-// citation styling for both) on the left, figure on the right.
-// ==========================================================================
-
 .publications__layout {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap: spacing(9);
+  gap: 36px;
   align-items: start;
 
   @include until(tablet) {
     grid-template-columns: 1fr;
-    gap: spacing(6);
+    gap: 24px;
   }
 }
 
@@ -43,14 +38,14 @@
 }
 
 .publications__group-title {
-  margin-top: spacing(11);
+  margin-top: 44px;
 
   &:first-child {
     margin-top: 0;
   }
 
   & + .publications__list {
-    margin-bottom: spacing(9);
+    margin-bottom: 36px;
   }
 }
 
@@ -59,12 +54,8 @@
   flex-direction: column;
 }
 
-// Same treatment for a published article and a working paper — both are
-// just a formatted citation, optionally followed by a link. Borders only
-// separate entries from each other, not the list from its title or the
-// last entry from whatever follows.
 .publications__item {
-  padding: spacing(5.5) 0;
+  padding: 22px 0;
   border-top: 1px solid $color-border;
 
   &:first-child {
@@ -75,16 +66,37 @@
 
 .publications__citation {
   @include body-text;
-  margin: 0 0 spacing(1.5);
+  margin: 0;
   color: $color-text;
 }
 
-.publications__link {
+.publications__title-link {
   @include underline-draw(left);
-  display: inline-block;
-  font: 500 13px $font-sans;
   color: $color-accent;
-  word-break: break-all;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-alt;
+    background-size: 100% 1px;
+  }
+}
+
+.publications__meta-links {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 44px 0 0;
+}
+
+.publications__meta-sep {
+  color: $color-text-faint;
+}
+
+.publications__meta-link {
+  @include underline-draw(left);
+  @include body-text;
+  color: $color-accent;
 
   &:hover,
   &:focus-visible {

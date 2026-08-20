@@ -3,7 +3,7 @@
 
   <div class="publications__layout">
     <div class="publications__lists">
-      <h2 class="u-page-title publications__group-title">Publications</h2>
+      <h2 class="u-page-title publications__group-title">Peer-reviewed publications</h2>
       <div class="publications__list" data-list="publications"></div>
 
       <h2 class="u-page-title publications__group-title">Working papers</h2>
@@ -12,9 +12,22 @@
       <template class="publications__item-template">
         <article class="publications__item">
           <p class="publications__citation"></p>
-          <a class="publications__link"></a>
         </article>
       </template>
+
+      <nav class="publications__meta-links" aria-label="Author profiles">
+        <a
+          class="publications__meta-link"
+          href="https://scholar.google.com/citations?user=U9Qq0pQAAAAJ&hl=en"
+          target="_blank"
+          rel="noopener"
+          >Google Scholar</a
+        >
+        <span class="publications__meta-sep" aria-hidden="true">·</span>
+        <a class="publications__meta-link" href="https://orcid.org/0009-0004-2554-7827" target="_blank" rel="noopener"
+          >ORCID</a
+        >
+      </nav>
     </div>
 
     <figure class="publications__figure">

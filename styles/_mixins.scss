@@ -2,19 +2,12 @@
 @use "typography" as *;
 @use "breakpoints" as *;
 
-// ==========================================================================
-// Reusable structural + interaction mixins
-// ==========================================================================
-
 @mixin container($max: $container-text) {
   max-width: $max;
   margin-inline: auto;
-  //padding-inline: spacing(11); // 44px
 
-  // Mobile keeps a slim, consistent edge margin regardless of the desktop
-  // padding above.
   @include until(tablet) {
-    padding-inline: 8px;
+    padding-inline: 16px;
   }
 }
 
@@ -37,13 +30,6 @@
   }
 }
 
-// Animated underline that draws in from one edge, rather than a plain
-// border fade. A background-gradient (not a pseudo-element) so it repaints
-// correctly on each fragment of a link that wraps across lines — `box-
-// decoration-break: clone` is what makes that work. Sets up the line itself;
-// the caller decides what triggers it — e.g. `&:hover, &[aria-current="page"]`
-// for the nav, or `&.is-visible` for a scroll-triggered reveal — by setting
-// `background-size: 100% 1px;` on whatever selector should draw it in.
 @mixin underline-draw($origin: left) {
   text-decoration: none;
   padding-bottom: 3px;
@@ -56,7 +42,6 @@
   transition: background-size $duration-base $ease-standard;
 }
 
-// Image + caption pattern used across the photo essays.
 @mixin figure-caption {
   position: absolute;
   left: 14px;
@@ -68,26 +53,6 @@
   border-radius: $radius-sm;
 }
 
-@mixin pill($bg: $color-pill, $color: $color-text) {
-  display: inline-block;
-  font: 500 12px $font-sans;
-  color: $color;
-  background: $bg;
-  padding: 7px 13px;
-  border-radius: $radius-pill;
-}
-
-@mixin badge-outline($color: $color-accent) {
-  display: inline-block;
-  font: 500 11px $font-sans;
-  color: $color;
-  border: 1px solid $color;
-  padding: 3px 9px;
-  border-radius: $radius-pill;
-}
-
-// Reveal-on-scroll: JS toggles `.is-visible` once an IntersectionObserver
-// entry crosses the threshold (see js/utils/reveal.js).
 @mixin reveal-on-scroll {
   opacity: 0;
   transform: translateY(26px);

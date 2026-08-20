@@ -3,7 +3,7 @@
 @use "../../styles/typography" as *;
 
 .stats__grid {
-  padding-block: spacing(14); // 56px
+  padding-block: 56px;
   display: grid;
   display: none;
   grid-template-columns: repeat(5, 1fr);
@@ -16,12 +16,12 @@
 
   @include until(tablet) {
     grid-template-columns: repeat(2, 1fr);
-    padding-block: spacing(8);
+    padding-block: 32px;
   }
 }
 
 .stats__item {
-  padding: spacing(4.5) spacing(5);
+  padding: 18px 20px;
   border-right: 1px solid $color-border;
 
   &:nth-child(5n) {
@@ -35,7 +35,7 @@
 
     &:nth-child(n + 4) {
       border-top: 1px solid $color-border;
-      padding-top: spacing(4.5);
+      padding-top: 18px;
     }
   }
 
@@ -50,7 +50,7 @@
 
     &:nth-child(n + 3) {
       border-top: 1px solid $color-border;
-      padding-top: spacing(4.5);
+      padding-top: 18px;
     }
   }
 }
@@ -58,7 +58,7 @@
 .stats__value {
   font: 400 34px / 1 $font-serif;
   color: $color-text;
-  margin: 0 0 spacing(2);
+  margin: 0 0 8px;
 
   @include until(tablet) {
     font-size: 28px;

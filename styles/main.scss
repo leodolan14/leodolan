@@ -1,8 +1,3 @@
-// ==========================================================================
-// Leo Dolan — main stylesheet entry point
-// Compiles to css/main.css (see package.json "build:css" script)
-// ==========================================================================
-
 @use "variables" as *;
 @use "breakpoints" as *;
 @use "typography" as *;
@@ -15,7 +10,6 @@
 @use "../components/profile/profile";
 @use "../components/home-intro/home-intro";
 @use "../components/stats/stats";
-@use "../components/fieldwork-map/fieldwork-map";
 @use "../components/fieldwork-gallery/fieldwork-gallery";
 @use "../components/research/research";
 @use "../components/publications/publications";
@@ -43,8 +37,6 @@ html {
 }
 
 :root {
-  // Overwritten precisely by nav.js once the fixed nav is measured; this is
-  // just a same-ballpark fallback for the instant before that runs.
   --nav-height: 74px;
 }
 

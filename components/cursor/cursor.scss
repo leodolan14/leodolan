@@ -1,14 +1,6 @@
 @use "../../styles/variables" as *;
 @use "../../styles/breakpoints" as *;
 
-// ==========================================================================
-// Cursor companion — a frosted-glass circle (same recipe as .nav's backdrop)
-// that trails the pointer and grows over clickable elements. Desktop only:
-// cursor.js skips mounting on coarse/touch pointers, and this hides it below
-// the `desktop` breakpoint so a narrowed browser window doesn't show it
-// alongside a layout meant for smaller screens.
-// ==========================================================================
-
 .cursor {
   position: fixed;
   top: 0;
@@ -22,20 +14,12 @@
   background: rgba($color-bg, 0.2);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(10px);
-  // box-shadow: 0 0 18px 6px rgba($color-bg, 0.35);
   will-change: transform;
   transition: width $duration-fast $ease-standard, height $duration-fast $ease-standard,
     opacity $duration-fast $ease-standard, box-shadow $duration-fast $ease-standard;
 
   &.is-active {
     opacity: 1;
-  }
-
-  &.is-hover {
-    // width: 54px;
-    // height: 54px;
-    // background: rgba($color-accent-alt, 0.2);
-    // box-shadow: 0 0 26px 10px rgba($color-accent-alt, 0.22);
   }
 
   @include until(desktop) {

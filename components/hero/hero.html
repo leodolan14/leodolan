@@ -3,9 +3,6 @@
     <p class="hero__eyebrow">Economic Historian · University of Groningen</p>
     <h1 class="hero__title">Leo Dolan</h1>
 
-    <!-- Mobile only (hidden from `laptop` up) — sits right after the name.
-         The desktop copy below is a separate element so this can be hidden
-         on desktop without disturbing .hero__text's flex-column spacing. -->
     <div class="hero__media hero__media--mobile">
       <figure class="hero__frame">
         <img
@@ -20,28 +17,60 @@
     </div>
 
     <p class="hero__intro">
-      I am an economic historian specialising in African labour, living standards and
-      long-run economic development. I recently joined the University of Groningen's
-      Faculty of Economics and Business as a Postdoctoral Researcher, working with
-      Professor Jutta Bolt on the
-      <a
+      I am an economic historian working on labour, living standards and long-run
+      development in Africa and the Global South. I am a Postdoctoral Researcher in the
+      Department of Economics, Econometrics and Finance at the University of Groningen,
+      where I work with Professor Jutta Bolt on the ERC-funded Africa@Work project.
+    </p>
+    <p class="hero__intro">
+      My research combines archival evidence with quantitative analysis to examine how
+      colonial institutions and labour systems shaped workers' living standards, firm
+      performance and long-run development.
+    </p>
+    <p class="hero__intro">
+      My PhD in Economic History at Universidad Carlos III de Madrid focused on
+      Portuguese Africa and comparative colonial economies. Two chapters have been
+      published as peer-reviewed articles, and I continue to develop this work through
+      research on reparations and the economic valuation of colonial coercion.
+    </p>
+
+    <div class="hero__project">
+      <p class="hero__project-label">Africa@Work</p>
+      <p class="hero__project-text">
+        <a
         class="hero__link"
         href="https://www.linkedin.com/pulse/studying-transformation-employment-psfye/"
         target="_blank"
         rel="noopener"
-        >ERC-funded Africa @ Work project</a
-      >.
-    </p>
-    <p class="hero__intro">
-      The project reconstructs occupational and employment patterns across 33
-      Sub-Saharan African countries from 1920 to the present. By linking colonial and
-      post-independence periods, it examines how African labour markets changed, why
-      informal and low-productivity work remain widespread, and how opportunities
-      differed across regions and between men and women.
-    </p>
+        >Africa@Work </a>
+        
+        reconstructs occupational structures across 33 Sub-Saharan African countries from 1920 to 2020. Drawing on historical censuses and labour statistics, the project examines the diverse paths and uneven levels of industrialisation across the continent, tracing long-run shifts in employment between agriculture, manufacturing, services, and other sectors.
+      </p>
+    </div>
+
+    <!--
+      INSTRUCTIONS: how to update the CV PDF
+      1. Put the new PDF file in the assets/images folder.
+      2. Change the href below to your new file's name. Spaces in the
+         filename must be written as %20 (e.g. "My File.pdf" becomes
+         "My%20File.pdf"). Leave everything before "assets/images/" as is.
+      3. The download="..." attribute is just the filename suggested to the
+         visitor when they save the file — update it to match too, but it
+         doesn't need to be identical to the real filename.
+      4. This same CV link also appears on the Contact page
+         (components/contact/contact.html) — update it there too so both
+         point to the same file.
+    -->
+    <nav class="hero__actions" aria-label="Shortcuts">
+      <a
+        class="hero__action"
+        href="assets/images/03_CV_Leo_Dolan_July_2026.pdf"
+        download="Leo-Dolan-CV.pdf"
+        >Download CV</a
+      >
+    </nav>
   </div>
 
-  <!-- Desktop only (`laptop` up) — the right-hand column. -->
   <div class="hero__media hero__media--desktop">
     <figure class="hero__frame">
       <img

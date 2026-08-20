@@ -3,12 +3,6 @@
 @use "../../styles/typography" as *;
 @use "../../styles/mixins" as *;
 
-// ==========================================================================
-// Site navigation — fixed to the viewport, always on a legible blurred
-// backdrop. Its rendered height is published to --nav-height (see nav.js)
-// so page content can reserve the right amount of space below it.
-// ==========================================================================
-
 .nav {
   position: fixed;
   top: 0;
@@ -18,15 +12,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: spacing(4);
-  padding: 22px spacing(11);
+  gap: 16px;
+  padding: 22px 44px;
   background: rgba($color-bg, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  // border-bottom: 1px solid $color-border;
 
   @include until(tablet) {
-    padding: 16px 8px;
+    padding: 16px 16px;
   }
 }
 
@@ -43,23 +36,15 @@
 
 .nav__links {
   display: flex;
-  gap: spacing(7);
+  gap: 28px;
   list-style: none;
   margin: 0;
   padding: 0;
 
   @include until(laptop) {
-    gap: spacing(5);
+    gap: 20px;
   }
 
-  // Full-screen overlay menu, toggled by .nav__toggle (see nav.js). Hidden
-  // via opacity/visibility (not display) so the close transition can play.
-  //
-  // Height is set explicitly via viewport units rather than `inset: 0`
-  // (top/right/bottom/left) — .nav has `backdrop-filter`, which makes it the
-  // containing block for its `position: fixed` descendants, so a `bottom: 0`
-  // here would resolve against .nav's own (short) box instead of the
-  // viewport. `100dvh` isn't affected by that and always spans the screen.
   @include until(tablet) {
     position: fixed;
     top: 0;
@@ -71,10 +56,10 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    gap: spacing(6.5);
+    gap: 26px;
     width: auto;
     margin: 0;
-    padding: spacing(11) spacing(3);
+    padding: 44px 16px;
     background: rgba($color-bg, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -96,7 +81,7 @@
 
 .nav__link {
   @include nav-link;
-  @include underline-draw(left); // draws left-to-right on hover/active
+  @include underline-draw(left);
   color: $color-text;
   transition: color $duration-fast $ease-standard, background-size $duration-base $ease-standard;
   @include focus-ring;
@@ -113,8 +98,6 @@
   }
 }
 
-// Hamburger toggle — desktop hides it (links show inline); mobile shows it
-// and hides .nav__links until opened. The three bars animate into an X.
 .nav__toggle {
   display: none;
   position: relative;

@@ -1,5 +1,25 @@
-<section class="fieldwork-gallery container--wide reveal" aria-label="Fieldwork and archive images" data-reveal-key="fieldwork-gallery">
-  <!-- <p class="u-eyebrow">Fieldwork and archive images</p> -->
+<!--
+  INSTRUCTIONS: how to add a new photo to this gallery
+  1. Put the image file in the assets/images folder.
+  2. Copy one whole <figure>...</figure> block below (pick any one) and
+     paste it inside one of the three <div class="fieldwork-gallery__column">
+     sections, wherever you'd like the new photo to appear.
+  3. In your pasted copy, change:
+     - src="assets/images/YOUR-FILE-NAME.jpg" to your new file's name
+     - width and height to the image's real pixel size (any photo app or
+       "Get Info" / "Properties" on the file will show this)
+     - alt="..." to a short plain-text description (for screen readers)
+     - the caption text inside <p class="fieldwork-gallery__caption">
+  4. Pick the shape class that best matches your photo and use it in place
+     of the second class on the <figure> tag:
+     --tall (portrait, roughly 3:4), --wide (landscape, roughly 4:3),
+     --panorama (very wide), --portrait (very tall), --phone (phone-camera
+     portrait, roughly 9:16). This controls how the photo is cropped.
+  To remove a photo, delete its whole <figure>...</figure> block.
+-->
+<section class="fieldwork-gallery container--wide" aria-label="Research photography">
+  <h2 class="fieldwork-gallery__heading">Research in practice</h2>
+
   <div class="fieldwork-gallery__grid">
     <div class="fieldwork-gallery__column" data-parallax="-35">
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--portrait">
@@ -10,74 +30,71 @@
           alt="Airport, Angola"
           loading="lazy"
         />
-        <p class="fieldwork-gallery__caption">Angola</p>
-      </figure>
-      <figure class="fieldwork-gallery__item fieldwork-gallery__item--wide">
-        <img
-          src="assets/images/freetown-stadium.png"
-          width="1376"
-          height="1032"
-          alt="Siaka Stevens National Stadium, Freetown, Sierra Leone"
-          loading="lazy"
-        />
-        <p class="fieldwork-gallery__caption">Freetown, Sierra Leone</p>
+        <p class="fieldwork-gallery__caption">Luanda, Angola</p>
       </figure>
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
         <img
-          src="assets/images/benin-street.png"
-          width="581"
+          src="assets/images/maputo-street.png"
+          width="774"
           height="1032"
-          alt="Street scene, Benin"
+          alt="Street scene, Maputo, Mozambique"
           loading="lazy"
         />
-        <p class="fieldwork-gallery__caption">Benin</p>
+        <p class="fieldwork-gallery__caption">Maputo, Mozambique</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--phone">
+        <img
+          src="assets/images/maseru-lesotho.jpg"
+          width="900"
+          height="1600"
+          alt="Maseru Bridge border crossing, Lesotho"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Maseru, Lesotho</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--phone">
+        <img
+          src="assets/images/johannesburg-south-africa.jpg"
+          width="900"
+          height="1600"
+          alt="Jacaranda-lined street, Johannesburg, South Africa"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Johannesburg, South Africa</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--panorama">
+        <img
+          src="assets/images/zambia-archive.jpg"
+          width="1600"
+          height="719"
+          alt="Archive storage, Zambia"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Livingstone Museum Archives, Zambia</p>
       </figure>
     </div>
 
     <div class="fieldwork-gallery__column" data-parallax="25">
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
         <img
-          src="assets/images/maputo-ministry.png"
-          width="774"
-          height="1032"
-          alt="Ministry building, Maputo, Mozambique"
+          src="assets/images/brussels-archives.jpg"
+          width="1200"
+          height="1600"
+          alt="Entrance, General State Archives, Joseph Cuvelier Depot, Brussels"
           loading="lazy"
         />
-        <p class="fieldwork-gallery__caption">Maputo, Mozambique</p>
-      </figure>
-      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
-        <img
-          src="assets/images/ganvie-benin.png"
-          width="774"
-          height="1032"
-          alt="Ganvié lake village, Benin"
-          loading="lazy"
-        />
-        <p class="fieldwork-gallery__caption">Ganvié lake village, Benin</p>
-      </figure>
-      <figure class="fieldwork-gallery__item fieldwork-gallery__item--wide">
-        <img
-          src="assets/images/wits-shutdown.png"
-          width="1376"
-          height="1032"
-          alt="G20 Women's Shutdown demonstration, Wits University, Johannesburg"
-          loading="lazy"
-        />
-        <p class="fieldwork-gallery__caption">Johannesburg, South Africa</p>
+        <p class="fieldwork-gallery__caption">General State Archives, at the Joseph Cuvelier Depot, Brussels</p>
       </figure>
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
         <img
           src="assets/images/botswana-campus.png"
           width="464"
           height="1032"
-          alt="The University of Botswana"
+          alt="Campus scene, Botswana"
           loading="lazy"
         />
-        <p class="fieldwork-gallery__caption">Botswana</p>
+        <p class="fieldwork-gallery__caption">Gaborone, Botswana</p>
       </figure>
-    </div>
-
-    <div class="fieldwork-gallery__column" data-parallax="-18">
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
         <img
           src="assets/images/ganvie-boat.png"
@@ -90,13 +107,86 @@
       </figure>
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
         <img
-          src="assets/images/maputo-street.png"
+          src="assets/images/mombasa-kenya.jpg"
+          width="1200"
+          height="1600"
+          alt="Airstrip, Mombasa, Kenya"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Mombasa, Kenya</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--portrait">
+        <img
+          src="assets/images/womens-library-lse.jpg"
+          width="737"
+          height="1600"
+          alt="Women's Library sign, London School of Economics"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Women's Library Archives, London School of Economics, UK</p>
+      </figure>
+    </div>
+
+    <div class="fieldwork-gallery__column" data-parallax="-18">
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
+        <img
+          src="assets/images/royal-museum-tervuren.jpg"
+          width="1200"
+          height="1600"
+          alt="Royal Museum for Central Africa, Tervuren, Belgium"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">The Royal Museum for Central Africa Archives, Tervuren</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--wide">
+        <img
+          src="assets/images/wits-shutdown.png"
+          width="1376"
+          height="1032"
+          alt="University of the Witwatersrand campus, Johannesburg"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">William Cullen Library, South Africa</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
+        <img
+          src="assets/images/benin-street.png"
+          width="581"
+          height="1032"
+          alt="Street scene, Benin"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Cotonou, Benin</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
+        <img
+          src="assets/images/maputo-ministry.png"
           width="774"
           height="1032"
-          alt="Street scene, Maputo, Mozambique"
+          alt="Ministry building, Maputo, Mozambique"
           loading="lazy"
         />
         <p class="fieldwork-gallery__caption">Maputo, Mozambique</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
+        <img
+          src="assets/images/nairobi-kenya.jpg"
+          width="1200"
+          height="1600"
+          alt="Nairobi City County arch, Kenya"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Nairobi, Kenya</p>
+      </figure>
+      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
+        <img
+          src="assets/images/coimbra-archives.jpg"
+          width="1200"
+          height="1600"
+          alt="University of Coimbra, Portugal"
+          loading="lazy"
+        />
+        <p class="fieldwork-gallery__caption">Life Science Department Archives, University of Coimbra, Portugal</p>
       </figure>
       <figure class="fieldwork-gallery__item fieldwork-gallery__item--panorama">
         <img
@@ -107,16 +197,6 @@
           loading="lazy"
         />
         <p class="fieldwork-gallery__caption">Cape Town, South Africa</p>
-      </figure>
-      <figure class="fieldwork-gallery__item fieldwork-gallery__item--tall">
-        <img
-          src="assets/images/benin-motorbikes.png"
-          width="774"
-          height="1032"
-          alt="Street traffic, Benin"
-          loading="lazy"
-        />
-        <p class="fieldwork-gallery__caption">Benin</p>
       </figure>
     </div>
   </div>

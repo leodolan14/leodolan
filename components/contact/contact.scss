@@ -3,26 +3,21 @@
 @use "../../styles/typography" as *;
 @use "../../styles/mixins" as *;
 
-// ==========================================================================
-// Contact page — photograph on the left, link list on the right
-// ==========================================================================
-
 .contact__body {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
-  gap: spacing(9);
+  gap: 36px;
   align-items: start;
 
   @include until(tablet) {
     grid-template-columns: 1fr;
-    gap: spacing(6);
+    gap: 24px;
   }
 }
 
 .contact__list {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid $color-border;
 }
 
 .contact__row {
@@ -30,11 +25,16 @@
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: spacing(3);
-  padding: spacing(6.5) 0;
+  gap: 12px;
+  padding: 26px 0;
   border-bottom: 1px solid $color-border;
   text-decoration: none;
   color: inherit;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
   &:hover .contact__value,
   &:focus-visible .contact__value {
@@ -48,8 +48,6 @@
   color: $color-text;
 }
 
-// Same treatment as every other link on the site (nav, hero, publications):
-// accent color at rest, underline draws in left-to-right on hover.
 .contact__value {
   @include underline-draw(left);
   display: inline-block;
@@ -61,7 +59,19 @@
 .contact__value--cv {
   display: inline-flex;
   align-items: center;
-  gap: spacing(2);
+  gap: 8px;
+}
+
+.contact__value--static {
+  color: $color-text;
+  text-align: right;
+  max-width: 360px;
+
+  .contact__row:hover &,
+  .contact__row:focus-visible & {
+    color: $color-text;
+    background-size: 0% 1px;
+  }
 }
 
 .contact__download-icon {
@@ -75,7 +85,7 @@
 
 .contact__frame {
   position: relative;
-  aspect-ratio: 774 / 1032;
+  aspect-ratio: 2252 / 4000;
   overflow: hidden;
   border-radius: $radius-sm;
 

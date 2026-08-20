@@ -1,12 +1,5 @@
 const cache = new Map();
 
-/**
- * Fetches a component's HTML fragment once and caches the parsed result so
- * repeated route visits don't re-request the same markup.
- *
- * @param {string} path - URL to the component's .html fragment.
- * @returns {Promise<DocumentFragment>} a fresh clone of the parsed markup.
- */
 export async function loadTemplate(path) {
   if (!cache.has(path)) {
     cache.set(

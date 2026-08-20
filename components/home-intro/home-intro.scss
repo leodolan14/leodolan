@@ -4,25 +4,26 @@
 @use "../../styles/mixins" as *;
 
 .home-intro__grid {
-  padding: spacing(2) 0; // 
+  padding: 8px 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border: 1px solid $color-border;
 
   @include until(laptop) {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 32px;
   }
 
   @include until(tablet) {
     grid-template-columns: 1fr;
-    padding-top: spacing(2);
+    padding-top: 8px;
     padding-inline: 16px;
   }
 }
 
 .home-intro__card {
   display: block;
-  padding: spacing(6.5) spacing(7);
+  padding: 26px 28px;
   border-right: 1px solid $color-border;
   text-decoration: none;
   color: inherit;
@@ -59,7 +60,7 @@
   @include until(tablet) {
     border-right: none;
     border-top: 1px solid $color-border;
-    padding: spacing(5) 0;
+    padding: 20px 0;
 
     &:first-child {
       border-top: none;
@@ -71,7 +72,7 @@
   @include heading-card;
   @include underline-draw(left);
   display: inline-block;
-  margin: 0 0 spacing(1.5);
+  margin: 0 0 6px;
   color: $color-text;
   transition: color $duration-fast $ease-standard, background-size $duration-base $ease-standard;
 }
