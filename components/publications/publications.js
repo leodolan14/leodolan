@@ -44,10 +44,12 @@ const WORKING_PAPERS = [
   {
     title: "The Opportunity Cost of Contrato: Forced Wage Labour in Portuguese Africa, 1910–1974",
     coauthors: "with Samuel Jones and Peter Gibbon.",
+    link: "https://www.wider.unu.edu/publication/measuring-extraction-forced-wage-labour-portuguese-africa-1910-1974",
   },
   {
     title: "Survivors, Indigenous Groups and States: Differential constraints and outcomes in contemporary Slavery- and Colonialism-related Reparation cases with Sub-Saharan African claimants",
     coauthors: "with Samuel Jones and Peter Gibbon.",
+    link: "https://www.wider.unu.edu/publication/prospects-financial-reparations-sub-saharan-africa",
   },
 ];
 
@@ -71,7 +73,10 @@ function renderWorkingPapers(root, entries) {
 
   entries.forEach((entry) => {
     const node = template.content.firstElementChild.cloneNode(true);
-    qs(".publications__citation", node).innerHTML = `“${entry.title}” — ${entry.coauthors}`;
+    const title = entry.link
+      ? `<a class="publications__title-link" href="${entry.link}" target="_blank" rel="noopener">${entry.title}</a>`
+      : entry.title;
+    qs(".publications__citation", node).innerHTML = `“${title}” — ${entry.coauthors}`;
     list.appendChild(node);
   });
 }
